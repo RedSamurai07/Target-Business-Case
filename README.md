@@ -6,6 +6,7 @@
 - [Goal](goal)
 - [Data Structure](data-structure)
 - [Tools](tools)
+- [Skills](skills)
 - [Data Analysis](#data-analysis)
 - [Insights](insights)
 - [Recommendations](recommendations)
@@ -150,6 +151,50 @@ Data Schema
 
 ### Tools
 SQl: Big QueryStudio - Querying, manipulating, and managing data in relational databases 
+
+### Skills
+
+1. Technical Skills:
+
+A. SQL (Advanced)
+
+- Complex Query Writing: Demonstrated by the use of JOIN operations (e.g., joining orders, customers, order_items, payments tables), GROUP BY with aggregate functions (COUNT, SUM, AVG), and CASE statements for conditional logic (e.g., time_of_day).
+- Window Functions: Applied LAG() for time-series analysis (e.g., comparing month-over-month order counts) and DENSE_RANK() for ranking (e.g., identifying peak months), and ROW_NUMBER() for complex ranking and joining.
+- Date/Time Functions: Proficient use of date and time functions for analyzing order timestamps, calculating delivery times, and identifying seasonality.
+- CTE (Common Table Expressions): Utilized WITH clauses to organize complex queries, making them more readable and manageable (e.g., for calculating percentage increase in cost or average delivery time).
+- Data Aggregation: Ability to summarize large datasets to extract meaningful metrics (e.g., total/average price and freight, order counts by time of day/state/payment type).
+- Data Filtering: Effective use of WHERE clauses to narrow down data for specific analysis (e.g., filtering for delivered orders, specific date ranges).
+
+B. Data Analysis:
+
+- Quantitative Analysis: Performed statistical calculations (counts, sums, averages, percentages) to derive insights from numerical data.
+- Trend Analysis: Identified growth trends in order placement over time and observed monthly seasonality.
+- Pattern Recognition: Recognized patterns in customer ordering times and geographical distribution.
+
+C. Exploratory Data Analysis (EDA):
+
+- Data Profiling: Understood data types, time ranges, and unique counts of cities/states.
+- Initial Data Assessment: Identified basic characteristics of the dataset before deep diving into specific questions.
+- Data Manipulation: Transformed raw data (timestamps, prices, etc.) into more useful formats for analysis.
+
+D. Domain/Business Skills:
+
+- E-commerce Analytics: Deep understanding of key e-commerce metrics (orders, customers, payments, delivery times, freight costs, product prices) and how they interrelate.
+- Customer Behavior Analysis: Identified preferred ordering times and geographical distribution of customers, providing insights into purchasing habits.
+- Order Management & Fulfillment: Analyzed order status, delivery times, and the efficiency of the delivery process.
+- Logistics & Supply Chain Analysis: Focused specifically on freight costs and delivery performance across different regions, highlighting efficiency variations.
+- Payment Processing Analysis: Understood customer payment preferences (type and installments), crucial for financial operations.
+- Market Insights (Brazil): Applied analytical skills to a specific geographical market, demonstrating an understanding of regional variations within an e-commerce context.
+- Business Intelligence (BI): The entire project is an exercise in converting raw data into actionable intelligence for different business departments.
+
+2. Soft Skills:
+
+- Analytical Thinking: The core skill used to interpret query results and draw meaningful conclusions.
+- Problem Solving: Structured approach to answering specific business questions using data.
+- Data Interpretation: Ability to translate numerical outputs into understandable business insights and recommendations.
+- Attention to Detail: Meticulous approach to crafting queries and verifying results.
+- Report Generation: Although the output here is text, the entire process builds towards creating a comprehensive analytical report.
+- Business Acumen: Understanding of how different data points (e.g., peak hours, freight costs) impact business operations and profitability.
 
 ### Data Analysis
 1). SQL
