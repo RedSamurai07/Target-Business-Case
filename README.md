@@ -11,7 +11,9 @@
 - [Recommendations](recommendations)
 
 ### Project Overview
-This project involves a thorough SQL-based analysis of an e-commerce dataset belonging to "Target," a company operating in Brazil. The primary objective is to derive significant insights across key operational areas, including customer behavior, order trends, financial implications, and delivery logistics. This encompasses exploratory data analysis, pinpointing seasonal patterns and peak order times, understanding how customers are distributed across Brazilian states, and assessing financial elements such as order price and freight value. Additionally, the project examines delivery efficiency and payment tendencies.
+Target is a globally renowned brand and a prominent retailer in the United States. Target makes itself a preferred shopping destination by offering outstanding value, inspiration, innovation and an exceptional guest experience that no other retailer can deliver.
+This particular business case focuses on the operations of Target in Brazil and provides insightful information about 100,000 orders placed between 2016 and 2018. The dataset offers a comprehensive view of various dimensions including the order status, price, payment and freight performance, customer location, product attributes, and customer reviews.
+By analyzing this extensive dataset, it becomes possible to gain valuable insights into Target's operations in Brazil. The information can shed light on various aspects of the business, such as order processing, pricing strategies, payment and shipping efficiency, customer demographics, product characteristics, and customer satisfaction levels.
 
 ### Executive Summary
 This analysis provides a comprehensive overview of the e-commerce operations in Brazil, offering actionable insights for various departments:
@@ -39,13 +41,112 @@ The primary goal of this project is to provide a comprehensive understanding of 
 6. Payment Analysis: To understand the month-on-month order distribution based on different payment types and the number of payment installments.
 
 ### Data structure and initial checks
-[Dataset](link)
+[Dataset](https://drive.google.com/drive/folders/1TGEc66YKbD443nslRi1bWgVd238gJCnb)
 
- - The initial checks of your transactions.csv dataset reveal the following:
+The data is available in 8 csv files:
 
-| Features | Description | Data types |
-| -------- | -------- | -------- | 
+- customers.csv
+- sellers.csv
+- order_items.csv
+- geolocation.csv
+- payments.csv
+- reviews.csv
+- orders.csv
+- products.csv
 
+The column description for these csv files is given below.
+
+1. The customers.csv contain following features:
+
+| Features | Description |
+| -------- | -------- | 
+| customer_id | ID of the consumer who made the purchase |  
+| customer_unique_id | Unique ID of the consumer | 
+| customer_zip_code_prefix | Zip Code of consumer’s location | 
+| customer_city | Name of the City from where order is made | 
+| customer_state | State Code from where order is made (Eg. são paulo - SP) | 
+
+2. The sellers.csv contains following features:
+
+| Features | Description | 
+| -------- | -------- | 
+| seller_id | Unique ID of the seller registered | 
+| seller_zip_code_prefix | Zip Code of the seller’s location | 
+| seller_city | Name of the City of the seller |  
+| seller_state | State Code (Eg. são paulo - SP) |  
+
+3. The order_items.csv contain following features:
+
+| Features | Description | 
+| -------- | -------- |  
+| order_id | A Unique ID of order made by the consumers | 
+| order_item_id | A Unique ID given to each item ordered in the order |  
+| product_id | A Unique ID given to each product available on the site | 
+| seller_id | Unique ID of the seller registered in Target | 
+| shipping_limit_date | The date before which the ordered product must be shipped |  
+| price | Actual price of the products ordered |  
+| freight_value | Price rate at which a product is delivered from one point to another |  
+
+4. The geolocations.csv contain following features:
+   
+| Features | Description |
+| -------- | -------- |  
+| geolocation_zip_code_prefix | First 5 digits of Zip Code |  
+| geolocation_lat | Latitude |  
+| geolocation_lng | Longitude |  
+| geolocation_city | City |  
+| geolocation_state | State |  
+
+5. The payments.csv contain following features:
+
+| Features | Description |
+| -------- | -------- |  
+| order_id | A Unique ID of order made by the consumers |  
+| payment_sequential | Sequences of the payments made in case of EMI |  
+| payment_type | Mode of payment used (Eg. Credit Card) |  
+| payment_installments | Number of installments in case of EMI purchase |  
+| payment_value | Total amount paid for the purchase order |  
+
+6. The orders.csv contain following features:
+
+| Features | Description |
+| -------- | -------- |  
+| order_id | A Unique ID of order made by the consumers |  
+| customer_id | ID of the consumer who made the purchase |  
+| order_status | Status of the order made i.e. delivered, shipped, etc. |  
+| order_purchase_timestamp | Timestamp of the purchase |  
+| order_delivered_carrier_date | Delivery date at which carrier made the delivery |  
+| order_delivered_customer_date | Date at which customer got the product |  
+| order_estimated_delivery_date | Estimated delivery date of the products |  
+
+7. The reviews.csv contain following features:
+   
+| Features | Description |
+| -------- | -------- |  
+| review_id | ID of the review given on the product ordered by the order id |  
+| order_id | A Unique ID of order made by the consumers |  
+| review_score | Review score given by the customer for each order on a scale of 1-5 |  
+| review_comment_title | Title of the review |  
+| review_comment_message | Review comments posted by the consumer for each order |
+| review_creation_date | Timestamp of the review when it is created |  
+| review_answer_timestamp | Timestamp of the review answered |  
+
+8. The products.csv contain following features:
+   
+| Features | Description |
+| -------- | -------- |  
+| product_id | A Unique identifier for the proposed project. |  
+| product_category_name | Name of the product category |  
+| product_name_lenght | Length of the string which specifies the name given to the products ordered |  
+| product_description_lenght | Length of the description written for each product ordered on the site |  
+| product_photos_qty | Number of photos of each product ordered available on the shopping portal |  
+| product_weight_g | Weight of the products ordered in grams |  
+| product_length_cm | Length of the products ordered in centimeters |  
+| product_height_cm | Height of the products ordered in centimeters |  
+| product_width_cm | Width of the product ordered in centimeters |  
+
+Data Schema
+<img width="1600" height="962" alt="image" src="https://github.com/user-attachments/assets/fd84b2a2-cd70-4435-8c77-1cbc1325c56f" />
 
 ### Tools
 SQl: Big QueryStudio - Querying, manipulating, and managing data in relational databases 
@@ -440,18 +541,39 @@ Snapshots:
 <img width="388" height="333" alt="image" src="https://github.com/user-attachments/assets/96dec01b-87b0-486a-ac91-201b30b25a3b" />
 
 ### Insights
-
-- The highest peak was on October 2016 with 324 orders.
-- The highest peak was on November 2017 with 7544 orders.
-- The Highest peak was on January 2018 with 7269 orders.
-- Maximum number of orders were in the afternoon & the Minimum number of orders were in the Dawn.
-- Then Lowest average delivery time was on the state SP & the Highest average delivery time is RR.
-- Under Credit cards, most of the orders were on November 2017 with the count of 5867 
-- Under UPI, most of the orders were on January 2018 with the count of 1518
-- Under Debit cards, most of the orders were on August 2018 with the count of 277
-- Under Voucher, most of the orders were on January 2018 with the count of 304
-- The Most Number of payment installment were on 2nd installment with the count of 49060
-- The least number of payment installment were on 22nd  & 23rd installment with the count of 1
+- Orders in the dataset were placed between September 15, 2016, at 12:16:38 UTC and September 3, 2018, at 17:40:06 UTC.
+- Customers placed orders from 4119 unique cities and 27 unique states within the given period.
+- There is an observable growing trend in the number of orders placed over the years, with most months showing an increase in order count compared to the previous month within the same year (e.g., from 800 orders in January 2017 to 1780 in February 2017, then to 2682 in March 2017).
+- The highest peak in 2016 was in October with 324 orders.
+- The highest peak in 2017 was in November with 7544 orders.
+- The highest peak in 2018 was in January with 7269 orders.
+- This indicates clear monthly seasonality, with different months experiencing peak order volumes in different years.
+- The maximum number of orders were placed in the Afternoon (13-18 hrs) with 38,135 orders.
+- The minimum number of orders were placed during Dawn (0-6 hrs) with 5,242 orders.
+- The dataset provides a breakdown of the number of orders placed month-on-month for each state, showing variations in order volume across different states and months. For instance, in month 1 (January), SP had 3351 orders while CE had 99 orders.
+- Customers are unevenly distributed across states, with SP having the highest number of unique customers (41,746), followed by RJ (12,852) and MG (11,635). This indicates a strong concentration of the customer base in certain states.
+- The cost of orders showed significant percentage increases from 2017 to 2018 for months between January and August, with some months seeing increases over 100%, and one month experiencing a 705.13% increase.
+- The analysis provides the total and average order price for each state, highlighting states with higher overall revenue (e.g., BA with 511349.99 total value) and average order values.
+- The total and average freight values are provided for each state, indicating the cost of shipping associated with orders in different regions.
+- The query successfully calculates the time taken to deliver each order and the difference between the estimated and actual delivery dates, providing a per-order view of delivery performance.
+- The top 5 states with the highest average freight value are RR (42.98), PB (42.72), RO (41.07), AC (40.07), and PI (39.15).
+- The top 5 states with the lowest average freight value are SP (15.15), PR (20.53), MG (20.63), RJ (20.96), and DF (21.04).
+- The state with the lowest average delivery time is SP (8.3 days), indicating faster deliveries.
+- The state with the highest average delivery time is RR (28.98 days), indicating slower deliveries.
+- Credit card payments are the most frequent payment type, with the highest order count of 5867 in November 2017.
+- For UPI, the peak was in January 2018 with 1518 orders.
+- Debit card orders peaked in August 2018 with 277 orders.
+- Voucher payments saw their highest count in January 2018 with 304 orders.
+- The majority of orders are placed with a single payment installment (49,060 orders).
+- The least number of orders are associated with 22nd and 23rd installments, each with a count of 1.
 
 ### Recommendations
-In order to raise more number of sales, in the dawn, you can fix a timeframe & provide some exciting offers & discounts, which will make them shop more as it is in that specific period. 
+- To increase sales during off-peak hours, specifically Dawn, consider implementing targeted exciting offers and discounts within that specific timeframe to incentivize customers to shop more.
+- Focus marketing campaigns and staffing during peak afternoon hours to maximize sales conversions. For the "dawn" period, implement targeted promotions, early bird specials, or exclusive discounts to incentivize purchases and drive incremental sales during traditionally slow hours.
+- Plan marketing campaigns, inventory, and promotional strategies well in advance of these peak months. Consider creating special events or product launches around these periods to maximize revenue. Analyze what factors might have driven the peaks in different months across years to replicate successes.
+- Allocate marketing budgets and sales efforts proportionally to these high-density customer areas to ensure maximum reach and impact. Simultaneously, explore opportunities for growth in states with lower customer penetration through localized campaigns or partnerships
+- Investigate the reasons for high freight costs in certain regions. This could involve exploring alternative shipping partners, optimizing logistics routes, or negotiating better rates for high-cost areas. Consider dynamic pricing for freight based on location to ensure profitability.
+- Analyze the end-to-end delivery process in states with longer delivery times to identify bottlenecks and areas for improvement. This could involve optimizing warehouse locations, improving last-mile delivery, or enhancing communication with delivery partners. Faster and more reliable delivery can significantly improve customer satisfaction and repeat business. For states with fast delivery, highlight this as a competitive advantage in marketing.
+- Conduct a detailed investigation into the drivers of these cost increases. Identify whether they are due to increased product costs, operational expenses, or other factors. Implement cost-control measures, renegotiate supplier contracts, or adjust pricing strategies to maintain healthy profit margins.
+- Ensure a seamless and secure credit card payment process. While single installments are dominant, consider offering flexible installment options with clear terms to potentially increase average order value for larger purchases, especially for specific product categories, without incurring excessive risk.
+- By implementing these recommendations, Target can leverage its data-driven insights to optimize operations, enhance customer satisfaction, and ultimately drive higher profitability in the Brazilian e-commerce market.
