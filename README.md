@@ -1,4 +1,4 @@
-# Target Business Case study using SQL
+# Target Business Case using SQL
 
 ## Table of contents
 - [Project Overview](#project-overview)
