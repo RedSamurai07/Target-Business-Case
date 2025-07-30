@@ -11,11 +11,32 @@
 - [Recommendations](recommendations)
 
 ### Project Overview
+This project involves a thorough SQL-based analysis of an e-commerce dataset belonging to "Target," a company operating in Brazil. The primary objective is to derive significant insights across key operational areas, including customer behavior, order trends, financial implications, and delivery logistics. This encompasses exploratory data analysis, pinpointing seasonal patterns and peak order times, understanding how customers are distributed across Brazilian states, and assessing financial elements such as order price and freight value. Additionally, the project examines delivery efficiency and payment tendencies.
 
 ### Executive Summary
+This analysis provides a comprehensive overview of the e-commerce operations in Brazil, offering actionable insights for various departments:
+
+**Sales Department:**
+The analysis reveals that the afternoon (13-18 hrs) is the peak time for customer orders, while dawn (0-6 hrs) sees the minimum number of orders. This critical information allows the sales team to optimize staffing and sales efforts during high-demand periods and potentially strategize promotions for slower times like dawn to boost sales.
+
+**Product Management Department:**
+While specific price elasticity or performance comparisons between premium and budget products are not directly provided, the analysis does highlight the highest order peaks by month and year, such as November 2017 with 7544 orders and January 2018 with 7269 orders. This can indirectly inform product launch timings or promotional strategies based on historical sales volume.
+
+**Branch Managers:** 
+The analysis provides a clear distribution of unique customers across states, with SP having the highest number (41746) and states like GO (2020) and ES (2033) having lower counts. This data is crucial for branch managers to understand regional customer density, optimize inventory based on local demand, and tailor product offerings to specific state preferences. The total and average order prices and freight values per state (e.g., SP with a total value of 511349.99 ) further aid in local inventory and sales planning.
+
+**Marketing Team:** 
+The identification of peak ordering times (afternoon) and monthly order seasonality (e.g., November 2017 and January 2018 being high-order months)  offers valuable insights for strategic promotion planning. Understanding the dominant payment types, with credit cards being the most used , and the prevalence of single-installment payments (49060 orders), can help the marketing team design effective combo offers, tailor discount strategies, and optimize payment-specific promotions to increase customer visits and boost revenue. The recommendation to provide exciting offers and discounts during dawn hours to increase sales is a direct marketing application derived from the analysis.
 
 ### Goal
+The primary goal of this project is to provide a comprehensive understanding of the e-commerce landscape in Brazil by:
 
+1. Exploratory Data Analysis: To understand the structure and characteristics of the dataset, including data types, time ranges, and geographical distribution of customers.
+2. In-depth Order Analysis: To identify trends and seasonality in order placement, including monthly growth and peak ordering times.
+3. Geographical Distribution: To analyze the distribution of orders and customers across different states.
+4. Economic Impact Assessment: To evaluate the financial aspects of orders, such as price and freight value, and analyze the percentage increase in costs over time.
+5. Delivery Performance Evaluation: To calculate delivery times and the difference between estimated and actual delivery dates, and identify states with the fastest and slowest average delivery times.
+6. Payment Analysis: To understand the month-on-month order distribution based on different payment types and the number of payment installments.
 
 ### Data structure and initial checks
 [Dataset](link)
