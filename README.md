@@ -44,8 +44,10 @@ SELECT
 ```
 Snapshots:
 
+<img width="555" height="145" alt="image" src="https://github.com/user-attachments/assets/334cd14c-4f02-4509-8a44-4a50e073ce6b" />
+
 B. Count the Cities & States of customers who ordered during the given period. Hint: We want you to count the number of unique cities & states where orders were placed by the customers during the given time period. 
-Query:
+
 ``` sql
 SELECT
 COUNT(DISTINCT customer_city) AS `cx_city`,
@@ -54,10 +56,12 @@ FROM
 `target.customers`
 ```
 Snapshots:
-______________________________________________________________________________ 
+
+<img width="487" height="107" alt="image" src="https://github.com/user-attachments/assets/352a5f59-6b50-44b2-a5df-0753ecc4ba9d" />
+
 II. In-depth Exploration: 
 A. Is there a growing trend in the no. of orders placed over the past years? Hint: We want you to find out if no. of orders placed has increased gradually in each month, over the past years. 
-Query:
+
 ``` sql
 WITH MonthlyOrderCounts AS ( 
  SELECT
@@ -77,8 +81,10 @@ ORDER BY order_year,order_months_1
 ```
 Snapshots:
 
+<img width="668" height="290" alt="image" src="https://github.com/user-attachments/assets/7583402f-d47e-4a0f-a2cd-e47c490b2072" />
+
 B. Can we see some kind of monthly seasonality in terms of the no. of orders being placed? Hint: We want you to find out if the no. of orders placed are at peak during certain months. 
-Query:
+
 ``` sql
 SELECT 
 a.order_month,
@@ -98,6 +104,8 @@ ORDER BY 2,4
 ```
 Snapshots:
 
+<img width="681" height="390" alt="image" src="https://github.com/user-attachments/assets/c0f1f567-e2f3-4caa-837a-f1bfeaa37c40" />
+
 C. During what time of the day, do the Brazilian customers mostly place their orders? 
 (Dawn, Morning, Afternoon or Night)
  ● 0-6 hrs : Dawn 
@@ -105,7 +113,7 @@ C. During what time of the day, do the Brazilian customers mostly place their or
  ● 13-18 hrs : Afternoon
  ● 19-23 hrs : Night 
 Hint: We are categorizing the hours of a day into the given time intervals and finding out during which intervals the Brazilian customers usually order the most. 
-Query:
+
 ``` sql
 SELECT
 (
@@ -126,10 +134,12 @@ ORDER BY
   order_count DESC
 ```
 Snapshots:
-______________________________________________________________________________ 
+
+<img width="493" height="180" alt="image" src="https://github.com/user-attachments/assets/c86b390d-8f2f-465f-b577-eaa013fd216b" />
+
 III. Evolution of E-commerce orders in the Brazil region: 
 A. Get the month on month no. of orders placed in each state. Hint: We want you to get the no. of orders placed in each state, in each month by our customers. 
-Query:
+
 ```
 SELECT
   c.customer_state,
@@ -149,8 +159,10 @@ ORDER BY
 ``` 
 Snapshots:
 
+<img width="530" height="347" alt="image" src="https://github.com/user-attachments/assets/bb768071-3c03-4ee2-a2bc-cd3bfd863126" />
+
 B. How are the customers distributed across all the states? Hint: We want you to get the no. of unique customers present in each state. 
-Query:
+
 ``` sql
 SELECT
   customer_state,
@@ -163,10 +175,12 @@ ORDER BY
   unique_customers_count DESC
 ```
 Snapshots:
-______________________________________________________________________________ 
+
+<img width="451" height="354" alt="image" src="https://github.com/user-attachments/assets/c3c7313a-e6a4-413a-ac3b-be19d24d8a11" />
+
 IV. Impact on Economy: Analyze the money movement by e-commerce by looking at order prices, freight and others.
 Get the % increase in the cost of orders from year 2017 to 2018 (include months between Jan to Aug only). Hint: You can use the payment_value column in the payments table to get the cost of orders. 
-Query:
+
 ``` sql
 WITH OrderCost AS (
   SELECT
@@ -198,8 +212,10 @@ WHERE
 ```
 Snapshots:
 
+<img width="238" height="293" alt="image" src="https://github.com/user-attachments/assets/cf64985d-7ff2-4a89-9f60-b02a18cdc0a7" />
+
 B. Calculate the Total & Average value of order price for each state. Hint: We want you to fetch the total price and the average price of orders for each state. 
-Query:
+
 ``` sql
 SELECT
 c.customer_state,
@@ -216,8 +232,10 @@ ORDER BY 1
 ```
 Snapshots:
 
+<img width="571" height="346" alt="image" src="https://github.com/user-attachments/assets/30958633-9ff9-4d4b-95aa-41e3429d9ce7" />
+
 C. Calculate the Total & Average value of order freight for each state. Hint: We want you to fetch the total freight value and the average freight value of orders for each state. 
-Query:
+
 ``` sql
 SELECT
 c.customer_state,
@@ -234,13 +252,14 @@ GROUP BY 1
 ORDER BY 1
 ```
 Snapshots:
-__________________________________________________________________________________
+
+<img width="638" height="360" alt="image" src="https://github.com/user-attachments/assets/ac5a56a0-4387-4e5e-9cae-9fc9f9cb016c" />
+
 V. Analysis based on sales, freight and delivery time. 
 A. Find the no. of days taken to deliver each order from the order’s purchase date as delivery time. Also, calculate the difference (in days) between the estimated & actual delivery date of an order. Do this in a single query. Hint: You can calculate the delivery time and the difference between the estimated & actual delivery date using the given formula: 
 ● time_to_deliver = order_delivered_customer_date - order_purchase_timestamp
 ● diff_estimated_delivery = order_estimated_delivery_date - order_delivered_customer_date 
 
-Query:
 ``` sql
 SELECT
 DATE_DIFF(order_delivered_customer_date, order_purchase_timestamp, DAY) AS `time_to_deliver`,
@@ -250,11 +269,10 @@ FROM
 ```
 Snapshots:
 
-Insights: NA
-Recommendations: NA
+<img width="406" height="360" alt="image" src="https://github.com/user-attachments/assets/ea165a23-9a76-4eac-9714-e54c5d07a37e" />
 
 B. Find out the top 5 states with the highest & lowest average freight value. Hint: We want you to find the top 5 & the bottom 5 states arranged in increasing order of the average freight value. 
-Query:
+
 ``` sql
 SELECT
  high.customer_state AS `High_state`, 
@@ -302,8 +320,10 @@ ON high.row_val_1 = low.row_val_2
 ```
 Snapshots:
 
+<img width="682" height="233" alt="image" src="https://github.com/user-attachments/assets/353207c7-8d63-414b-8a01-48cffe5710b9" />
+
 C. Find out the top 5 states with the highest & lowest average delivery time. Hint: We want you to find the top 5 & the bottom 5 states arranged in increasing order of the average delivery time. D. Find out the top 5 states where the order delivery is really fast as compared to the estimated date of delivery. You can use the difference between the averages of actual & estimated delivery date to figure out how fast the delivery was for each state. Hint: Include only the orders that are already delivered. 
-Query:
+
 ``` sql
 WITH cte AS 
 (
@@ -362,11 +382,12 @@ LIMIT
  5
 ```
 Snapshots:
-______________________________________________________________________________ 
+
+<img width="675" height="181" alt="image" src="https://github.com/user-attachments/assets/a0f6c536-c116-4b5c-9067-1e55128c0892" />
+
 VI. Analysis based on the payments: 
 Find the month on month no. of orders placed using different payment types. Hint: We want you to count the no. of orders placed using different payment methods in each month over the past years.
 
-Query:
 ``` sql
 SELECT
  FORMAT_TIMESTAMP('%Y-%m', o.order_purchase_timestamp) AS `Month`, 
@@ -380,9 +401,10 @@ ORDER BY Month
 ```
 Snapshots:
 
+<img width="639" height="389" alt="image" src="https://github.com/user-attachments/assets/615853b5-2b3f-4def-8782-b910461f0d94" />
+
 Find the no. of orders placed on the basis of the payment installments that have been paid. Hint: We want you to count the no. of orders placed based on the no. of payment installments where at least one installment has been successfully paid. 
 
-Query:
 ``` sql
 SELECT 
 payment_installments, 
@@ -393,6 +415,8 @@ GROUP BY 1
 ORDER BY 1
 ```
 Snapshots:
+
+<img width="388" height="333" alt="image" src="https://github.com/user-attachments/assets/96dec01b-87b0-486a-ac91-201b30b25a3b" />
 
 ### Insights
 
