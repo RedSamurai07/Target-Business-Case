@@ -150,7 +150,10 @@ Data Schema
 <img width="1600" height="962" alt="image" src="https://github.com/user-attachments/assets/fd84b2a2-cd70-4435-8c77-1cbc1325c56f" />
 
 ### Tools
-SQl: Big QueryStudio - Querying, manipulating, and managing data in relational databases 
+
+| Language | Tool Name | Description |
+| -------- | -------- | -------- |  
+|  SQL | Big QueryStudio |  Querying, manipulating, and managing data in relational databases | 
 
 ### Skills
 
